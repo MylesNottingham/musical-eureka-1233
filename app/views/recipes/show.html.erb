@@ -1,19 +1,29 @@
+<section id="page_title">
+  <h1><%= @recipe.name %></h1>
 <h1><%= @recipe.name %></h1>
 <p>Complexity: <%= @recipe.complexity %></p>
-<p>Genre: <%= @recipe.genre %></p><br/>
+<p>Genre: <%= @recipe.genre %></p>
+</section>
+<br/>
 
-<% unless @recipe.ingredients.empty? %>
-  <h2>Ingredients:</h2>
-  <ul id="ingredients">
-    <% @recipe.ingredients.each do |ingredient| %>
-        <li><strong><%= ingredient.name %></strong>
-    <% end %>
-  </ul>
-<% end %><br/>
+<section id="ingredients">
+<h2>Ingredients:</h2>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+      <li><strong><%= ingredient.name %></strong>
+  <% end %>
+</ul>
+</section>
+<br/>
 
-<h3>Total Cost: $<%= @recipe.total_cost %></h3><br/>
+<h3 id="total_cost">Total Cost: $<%= @recipe.total_cost %></h3>
+<br/>
 
-<form action="/recipes/<%= @recipe.id %>" method="post">
-  <label for="ingredient_id">Add an Ingredient to this Recipe by Ingredient ID</label>
-  <input type="number" name="ingredient_id" id="ingredient_id">
-  <input type="submit" value="Submit">
+<section id="add_ingredient">
+<%= form_with(url: recipe_ingredients_path) do |form| %>
+  <%= form.label :ingredient_id, "Add an Ingredient to this Recipe by Ingredient ID" %>
+  <%= form.number_field :ingredient_id, id: "ingredient_id" %>
+  <%= form.hidden_field :recipe_id, value: @recipe.id %>
+  <%= form.submit "Submit" %>
+<% end %>
+</section>

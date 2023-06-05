@@ -1,8 +1,9 @@
-<h1>All Ingredients</h1><br/>
+<h1 id="page_title">All Ingredients</h1>
+<br/>
 
+<section id="ingredients">
 <% @ingredients.each do |ingredient| %>
-  <section id="ingredient-<%= ingredient.id %>">
-    <h3><%= ingredient.name %></h3>
-    <p>Cost: $<%= ingredient.cost %></p>
-  </section><br/>
+  <h3><%= ingredient.name %></h3>
+  <p>Cost: $<%= ingredient.cost %></p>
+  <br/>
 <% end %>
