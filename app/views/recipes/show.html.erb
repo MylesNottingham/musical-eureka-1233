@@ -1,17 +1,17 @@
 <section id="page_title">
-<h1><%= @recipe.name %></h1>
-<p>Complexity: <%= @recipe.complexity %></p>
-<p>Genre: <%= @recipe.genre %></p>
+  <h1><%= @recipe.name %></h1>
+  <p>Complexity: <%= @recipe.complexity %></p>
+  <p>Genre: <%= @recipe.genre %></p>
 </section>
 <br/>
 
 <section id="ingredients">
-<h2>Ingredients:</h2>
-<ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-      <li><strong><%= ingredient.name %></strong>
-  <% end %>
-</ul>
+  <h2>Ingredients:</h2>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+        <li><strong><%= ingredient.name %></strong>
+    <% end %>
+  </ul>
 </section>
 <br/>
 
@@ -19,10 +19,10 @@
 <br/>
 
 <section id="add_ingredient">
-<%= form_with(url: recipe_ingredients_path) do |form| %>
-  <%= form.label :ingredient_id, "Add an Ingredient to this Recipe by Ingredient ID" %>
-  <%= form.number_field :ingredient_id, id: "ingredient_id" %>
-  <%= form.hidden_field :recipe_id, value: @recipe.id %>
-  <%= form.submit "Submit" %>
-<% end %>
+  <%= form_with(url: recipe_ingredients_path) do |form| %>
+    <%= form.label :ingredient_id, "Add an Ingredient to this Recipe by Ingredient ID" %>
+    <%= form.number_field :ingredient_id, id: "ingredient_id" %>
+    <%= form.hidden_field :recipe_id, value: @recipe.id %>
+    <%= form.submit "Submit" %>
+  <% end %>
 </section>
