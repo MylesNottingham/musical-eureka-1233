@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   # get "/recipes/:id", to: "recipes#show"
   resources :recipes, only: [:show]
 
-  # ost "/recipes/:id", to: "recipe_ingredients#create"
+  # post "recipe_ingredients", to: "recipe_ingredients#create"
   resources :recipe_ingredients, only: [:create]
 end

@@ -1,4 +1,4 @@
-<section id="page_title">
+<section id="page-title">
   <h1><%= @recipe.name %></h1>
   <p>Complexity: <%= @recipe.complexity %></p>
   <p>Genre: <%= @recipe.genre %></p>
@@ -6,20 +6,20 @@
 <br/>
 
 <section id="ingredients">
-  <h2>Ingredients:</h2>
+  <h3>Ingredients:</h3>
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
-        <li><strong><%= ingredient.name %></strong>
+        <li><%= ingredient.name %></li>
     <% end %>
   </ul>
 </section>
 <br/>
 
-<h3 id="total_cost">Total Cost: $<%= @recipe.total_cost %></h3>
+<h4 id="total-cost">Total Cost: $<%= @recipe.total_cost %></h4>
 <br/>
 
-<section id="add_ingredient">
-  <%= form_with(url: recipe_ingredients_path) do |form| %>
+<section id="add-ingredient">
+  <%= form_with(url: recipe_ingredients_path, local: true) do |form| %>
     <%= form.label :ingredient_id, "Add an Ingredient to this Recipe by Ingredient ID" %>
     <%= form.number_field :ingredient_id, id: "ingredient_id" %>
     <%= form.hidden_field :recipe_id, value: @recipe.id %>

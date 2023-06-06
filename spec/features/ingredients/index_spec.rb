@@ -10,7 +10,7 @@ RSpec.describe "the ingredients index page" do
   end
 
   it "lists all ingredients and their cost" do
-    within "#page_title" do
+    within "#page-title" do
       expect(page).to have_content("All Ingredients")
     end
 
