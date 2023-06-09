@@ -19,7 +19,7 @@
 <br/>
 
 <section id="add-ingredient">
-  <%= form_with(url: recipe_ingredients_path, local: true) do |form| %>
+  <%= form_with(url: recipe_ingredients_path, method: :post, local: true) do |form| %>
     <%= form.label :ingredient_id, "Add an Ingredient to this Recipe by Ingredient ID" %>
     <%= form.number_field :ingredient_id, id: "ingredient_id" %>
     <%= form.hidden_field :recipe_id, value: @recipe.id %>
